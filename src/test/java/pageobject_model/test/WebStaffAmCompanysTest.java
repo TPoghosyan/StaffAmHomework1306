@@ -13,10 +13,10 @@ public class WebStaffAmCompanysTest extends StaffAmTests {
         StaffAmHomePage staffAmHomePage = new StaffAmHomePage();
 
         PositionPage positionPage =  staffAmHomePage.openPage()
-                       .chooseCategory(category)
-                       .chooseCity(city)
-                       .clickSearchButton()
-                        .selectCompanyName();
+                                                    .chooseCategory(category)
+                                                     .chooseCity(city)
+                                                      .clickSearchButton()
+                                                      .selectCompanyName();
 
 
         SoftAssert softAssert = new SoftAssert();
