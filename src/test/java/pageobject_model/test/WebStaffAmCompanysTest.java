@@ -12,15 +12,12 @@ public class WebStaffAmCompanysTest extends StaffAmTests {
     public void staffAm(String category,String city) throws InterruptedException {
         StaffAmHomePage staffAmHomePage = new StaffAmHomePage();
 
-        staffAmHomePage.openPage()
+        PositionPage positionPage =  staffAmHomePage.openPage()
                        .chooseCategory(category)
                        .chooseCity(city)
-                       .clickSearchButton();
+                       .clickSearchButton()
+                        .selectCompanyName();
 
-        SearchResultsPage searchResultsPage = new SearchResultsPage();
-        searchResultsPage.selectCompanyName();
-
-        PositionPage positionPage = new PositionPage();
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(positionPage.checkMail("https://www.epam.com/careers/epam-armenia"));

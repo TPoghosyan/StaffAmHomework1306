@@ -29,10 +29,10 @@ public class StaffAmHomePage extends Pages {
     }
 
 
-    public StaffAmHomePage clickSearchButton() {
+    public SearchResultsPage clickSearchButton() {
         WebElement searchButton = driver.findElement(By.xpath("//button[@type = 'submit'and@data-url='/en/site/search']"));
         searchButton.click();
-        return this;
+        return new SearchResultsPage();
 
     }
 
@@ -47,12 +47,7 @@ public class StaffAmHomePage extends Pages {
         return this;
     }
 
-    public boolean ElementIsChoosen() throws InterruptedException {
-        categoryesName = categoryesName + "/preceding-sibling::input";
-        Thread.sleep(2000);
-        return (driver.findElement(By.xpath(categoryesName)).isSelected());
 
-    }
 
 
 }

@@ -3,15 +3,12 @@ package pageobject_model.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
-public class SearchResultsPage extends  Pages{
+public class SearchResultsPage extends Pages {
 
-    public void selectCompanyName() throws InterruptedException {
+    public PositionPage selectCompanyName() throws InterruptedException {
         Thread.sleep(3000);
         driver.switchTo().window(driver.getWindowHandle());
         WebElement companyNameInput = driver.findElement(By.cssSelector("input#jobsfilter-key_word"));
@@ -22,6 +19,14 @@ public class SearchResultsPage extends  Pages{
         Thread.sleep(2000);
         staffOffers.get(0).click();
         Thread.sleep(2000);
+        return new PositionPage();
+
+    }
+
+    public boolean ElementIsChoosen() throws InterruptedException {
+        StaffAmHomePage.categoryesName = StaffAmHomePage.categoryesName + "/preceding-sibling::input";
+        Thread.sleep(2000);
+        return (driver.findElement(By.xpath(StaffAmHomePage.categoryesName)).isSelected());
 
     }
 }
