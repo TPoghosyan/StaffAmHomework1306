@@ -24,13 +24,15 @@ public class StaffAmHomePage extends Pages {
 
         WebElement allCategories = driver.findElement(By.xpath(categoryesName));
         allCategories.click();
+        StaffAmHomePage.categoryesName =categoryesName;
         return this;
     }
 
 
-    public void clickSearchButton() {
+    public StaffAmHomePage clickSearchButton() {
         WebElement searchButton = driver.findElement(By.xpath("//button[@type = 'submit'and@data-url='/en/site/search']"));
         searchButton.click();
+        return this;
 
     }
 
@@ -45,8 +47,9 @@ public class StaffAmHomePage extends Pages {
         return this;
     }
 
-    public boolean ElementIsChoosen() {
+    public boolean ElementIsChoosen() throws InterruptedException {
         categoryesName = categoryesName + "/preceding-sibling::input";
+        Thread.sleep(2000);
         return (driver.findElement(By.xpath(categoryesName)).isSelected());
 
     }

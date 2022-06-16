@@ -8,10 +8,13 @@ public class WEBStaffAmCategorySelectedTest extends  StaffAmTests{
 
 
     @Test(dataProvider = "staffAmCategories")
-    public void staffAm(String categoryesName) {
+    public void staffAm(String categoryesName) throws InterruptedException {
         StaffAmHomePage staffAmHomePage = new StaffAmHomePage();
 
-        Assert.assertTrue(staffAmHomePage.openPage().chooseCategory(categoryesName).ElementIsChoosen());
+        Assert.assertTrue(staffAmHomePage.openPage()
+                                         .chooseCategory(categoryesName)
+                                         .clickSearchButton()
+                                         .ElementIsChoosen());
     }
 
 
