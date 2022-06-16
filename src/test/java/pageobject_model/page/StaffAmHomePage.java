@@ -19,33 +19,28 @@ public class StaffAmHomePage extends Pages {
         return this;
     }
 
-    public StaffAmHomePage chooseSearchOption(String categoryesName) {
+    public StaffAmHomePage chooseCategory(String categoryesName) {
         categoryesName = "//*[contains(text(),'" + categoryesName + "')]";
 
         WebElement allCategories = driver.findElement(By.xpath(categoryesName));
         allCategories.click();
-
-        WebElement searchButton = driver.findElement(By.xpath("//button[@type = 'submit'and@data-url='/en/site/search']"));
-        searchButton.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(categoryesName + "/preceding-sibling::input")));
-        this.categoryesName = categoryesName;
         return this;
     }
 
-    public StaffAmHomePage chooseSearchOption(String categoryesName, String cityName) throws InterruptedException {
-        categoryesName = "//*[contains(text(),'" + categoryesName + "')]";
+
+    public void clickSearchButton() {
+        WebElement searchButton = driver.findElement(By.xpath("//button[@type = 'submit'and@data-url='/en/site/search']"));
+        searchButton.click();
+
+    }
+
+    public StaffAmHomePage chooseCity(String cityName) throws InterruptedException {
         cityName = "//*[contains(text(),'" + cityName + "')]";
-        WebElement allCategories = driver.findElement(By.xpath(categoryesName));
-        allCategories.click();
 
         WebElement allCities = driver.findElement(By.xpath(cityName));
         allCities.click();
 
         Thread.sleep(2000);
-
-        WebElement searchButton = driver.findElement(By.xpath("//button[@type = 'submit'and@data-url='/en/site/search']"));
-        searchButton.click();
         this.cityName = cityName;
         return this;
     }

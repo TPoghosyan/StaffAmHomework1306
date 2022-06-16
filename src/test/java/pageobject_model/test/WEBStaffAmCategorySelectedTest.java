@@ -11,7 +11,7 @@ public class WEBStaffAmCategorySelectedTest extends  StaffAmTests{
     public void staffAm(String categoryesName) {
         StaffAmHomePage staffAmHomePage = new StaffAmHomePage();
 
-        Assert.assertTrue(staffAmHomePage.openPage().chooseSearchOption(categoryesName).ElementIsChoosen());
+        Assert.assertTrue(staffAmHomePage.openPage().chooseCategory(categoryesName).ElementIsChoosen());
     }
 
 
