@@ -20,8 +20,8 @@ public class WebStaffAmCompanysTest extends StaffAmTests {
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(positionPage.getWebsiteText(), "https://www.epam.com/careers/epam-armenia");
-        softAssert.assertEquals(positionPage.getPhoneNumber(),"+37410600065");
-        softAssert.assertEquals(positionPage.getCompanyAdress(),"15 Khorenatsi Street");
+        softAssert.assertTrue(positionPage.getPhoneNumber("+37410600065"));
+        softAssert.assertTrue(positionPage.getCompanyAdress("15 Khorenatsi Street"));
         softAssert.assertAll();
     }
 }

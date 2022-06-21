@@ -9,13 +9,13 @@ public class PositionPage extends Pages {
         return driver.findElement(By.cssSelector("p a[href='https://www.epam.com/careers/epam-armenia']")).getText();
     }
 
-    public String getPhoneNumber() {
+    public boolean getPhoneNumber(String phoneNumber) {
         return (driver.findElements(By.xpath("//p[@class='professional-skills-description']")).
-                get(1).getText());
+                get(1).getText().contains(phoneNumber));
     }
 
-    public String getCompanyAdress() {
+    public boolean getCompanyAdress(String adress) {
         return (driver.findElements(By.xpath("//p[@class='professional-skills-description']")).
-                get(2).getText());
+                get(2).getText().contains(adress));
     }
 }
