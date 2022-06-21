@@ -14,7 +14,7 @@ public class WEBStaffAmCategorySelectedTest extends  StaffAmTests{
         Assert.assertTrue(staffAmHomePage.openPage()
                                          .chooseCategory(categoryesName)
                                          .clickSearchButton()
-                                         .ElementIsChoosen());
+                                         .IsElementChoosen());
     }
 
 }

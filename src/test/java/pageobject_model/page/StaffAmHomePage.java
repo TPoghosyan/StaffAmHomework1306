@@ -24,7 +24,7 @@ public class StaffAmHomePage extends Pages {
 
         WebElement allCategories = driver.findElement(By.xpath(categoryesName));
         allCategories.click();
-        StaffAmHomePage.categoryesName =categoryesName;
+        StaffAmHomePage.categoryesName = categoryesName;
         return this;
     }
 
@@ -46,8 +46,6 @@ public class StaffAmHomePage extends Pages {
         this.cityName = cityName;
         return this;
     }
-
-
 
 
 }

@@ -3,18 +3,19 @@ package pageobject_model.page;
 import org.openqa.selenium.By;
 
 public class PositionPage extends Pages {
-    public boolean checkMail(String email) {
+    public String getWebsiteText() {
         driver.switchTo().window(driver.getWindowHandle());
-        return driver.findElement(By.cssSelector("p a[href='" + email + "']")).isEnabled();
+        System.out.println( driver.findElement(By.cssSelector("p a[href='https://www.epam.com/careers/epam-armenia']")).getText());
+        return driver.findElement(By.cssSelector("p a[href='https://www.epam.com/careers/epam-armenia']")).getText();
     }
 
-    public boolean checkPhone(String phoneNumber) {
+    public String getPhoneNumber() {
         return (driver.findElements(By.xpath("//p[@class='professional-skills-description']")).
-                get(1).getText().contains(phoneNumber));
+                get(1).getText());
     }
 
-    public boolean checkAdress(String adress) {
+    public String getCompanyAdress() {
         return (driver.findElements(By.xpath("//p[@class='professional-skills-description']")).
-                get(2).getText().contains(adress));
+                get(2).getText());
     }
 }
